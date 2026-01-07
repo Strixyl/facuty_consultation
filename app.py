@@ -747,7 +747,7 @@ def book_appointment():
             slot['is_booked'] = True
             break
     
-    # Create appointment
+    # appointment placement
     appointment = {
         'id': len(appointments) + 1,
         'faculty_id': data['faculty_id'],
@@ -774,7 +774,6 @@ def book_appointment():
 @app.route('/api/add-slot', methods=['POST'])
 def add_slot():
     data = request.json
-    
     slot = {
         'id': len(available_slots) + 1,
         'faculty_id': data['faculty_id'],
@@ -784,9 +783,7 @@ def add_slot():
         'is_booked': False
     }
     available_slots.append(slot)
-    
     return jsonify({'success': True, 'slot': slot})
-
 if __name__ == '__main__':
     print("🎓 Faculty Consultation Appointment System")
     print("📍 Open your browser and go to: http://127.0.0.1:5000")
