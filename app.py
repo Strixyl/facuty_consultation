@@ -8,9 +8,10 @@ app.secret_key = 'your-secret-key-here'
 
 # In-memory database (use SQLite/PostgreSQL in production)
 faculty_members = [
-    {'id': 1, 'name': 'Dr. Maria Santos', 'department': 'Computer Science', 'email': 'msantos@university.edu'},
+    {'id': 1, 'name': 'Dr. Maria Santos', 'department': 'Computer Studies', 'email': 'msantos@university.edu'},
     {'id': 2, 'name': 'Prof. Juan Reyes', 'department': 'Mathematics', 'email': 'jreyes@university.edu'},
     {'id': 3, 'name': 'Dr. Ana Cruz', 'department': 'Physics', 'email': 'acruz@university.edu'},
+    {'id': 4, 'name': 'Dr. Gwen Alison', 'department': 'Engineering', 'email': 'gwena@university.edu'},
 ]
 
 available_slots = [
@@ -19,10 +20,14 @@ available_slots = [
     {'id': 3, 'faculty_id': 1, 'date': '2026-01-10', 'time': '14:00', 'duration': 30, 'is_booked': False},
     {'id': 4, 'faculty_id': 2, 'date': '2026-01-10', 'time': '13:00', 'duration': 30, 'is_booked': False},
     {'id': 5, 'faculty_id': 2, 'date': '2026-01-11', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 6, 'faculty_id': 3, 'date': '2026-01-13', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 7, 'faculty_id': 4, 'date': '2026-01-12', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 8, 'faculty_id': 4, 'date': '2026-01-15', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 9, 'faculty_id': 4, 'date': '2026-01-16', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 10, 'faculty_id': 1, 'date': '2026-01-14', 'time': '09:00', 'duration': 30, 'is_booked': False},
+    {'id': 11, 'faculty_id': 3, 'date': '2026-01-13', 'time': '09:00', 'duration': 30, 'is_booked': False},
 ]
-
 appointments = []
-
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -784,19 +789,12 @@ def add_slot():
     return jsonify({'success': True, 'slot': slot})
 
 if __name__ == '__main__':
-    print("\n" + "="*60)
     print("🎓 Faculty Consultation Appointment System")
-    print("="*60)
-    print("\n🚀 Starting server...")
     print("📍 Open your browser and go to: http://127.0.0.1:5000")
-    print("\n💡 Features:")
     print("   • Students can browse faculty and book appointments")
     print("   • Faculty can manage their schedule and add time slots")
-    print("   • Email confirmations (simulated in console)")
-    print("   • Analytics on consultation topics")
     print("\n⚠️  Press Ctrl+C to stop the server\n")
-    print("="*60 + "\n")
-    
     app.run(debug=True, host='0.0.0.0', port=5000)
+    
     
     
