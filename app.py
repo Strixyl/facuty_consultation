@@ -760,8 +760,7 @@ def book_appointment():
         'status': 'confirmed'
     }
     appointments.append(appointment)
-    
-    # Simulate sending email
+  
     faculty = next(f for f in faculty_members if f['id'] == data['faculty_id'])
     print(f"\n📧 EMAIL SENT TO: {data['student_name']}")
     print(f"Subject: Appointment Confirmed with {faculty['name']}")
