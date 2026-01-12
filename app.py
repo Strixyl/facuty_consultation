@@ -6,7 +6,7 @@ from collections import defaultdict
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
 
-# In-memory database (use SQLite/PostgreSQL in production)
+
 faculty_members = [
     {'id': 1, 'name': 'Dr. Maria Santos', 'department': 'Computer Studies', 'email': 'msantos@university.edu'},
     {'id': 2, 'name': 'Prof. Juan Reyes', 'department': 'Mathematics', 'email': 'jreyes@university.edu'},
@@ -741,13 +741,11 @@ def get_appointments():
 def book_appointment():
     data = request.json
     
-    # Mark slot as booked
     for slot in available_slots:
         if slot['id'] == data['slot_id']:
             slot['is_booked'] = True
             break
-    
-    # appointment placement
+
     appointment = {
         'id': len(appointments) + 1,
         'faculty_id': data['faculty_id'],
