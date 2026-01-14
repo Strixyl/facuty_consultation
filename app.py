@@ -390,10 +390,10 @@ HTML_TEMPLATE = '''
             <p>Book appointments with your professors easily</p>
             <div class="role-switcher">
                 <button class="role-btn active" id="student-btn" onclick="switchRole('student')">
-                    👨‍🎓 Student View
+                     Student View
                 </button>
                 <button class="role-btn" id="faculty-btn" onclick="switchRole('faculty')">
-                    👨‍🏫 Faculty View
+                     Faculty View
                 </button>
             </div>
         </div>
@@ -425,12 +425,12 @@ HTML_TEMPLATE = '''
             <div class="card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h2 style="margin: 0;">Today's Schedule</h2>
-                    <button class="btn btn-primary" onclick="showAddSlotModal()">➕ Add Slot</button>
+                    <button class="btn btn-primary" onclick="showAddSlotModal()"> Add Slot</button>
                 </div>
                 <div id="appointments-container"></div>
                 
                 <div class="analytics">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">📊 Consultation Topics</h3>
+                    <h3 style="color: #667eea; margin-bottom: 15px;"> Consultation Topics</h3>
                     <div id="analytics-container"></div>
                 </div>
             </div>
@@ -457,8 +457,8 @@ HTML_TEMPLATE = '''
                 <div class="form-group">
                     <label>Meeting Type</label>
                     <select id="meeting-type">
-                        <option value="in-person">🏢 In-person</option>
-                        <option value="online">💻 Online</option>
+                        <option value="in-person"> In-person</option>
+                        <option value="online"> Online</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -591,8 +591,8 @@ HTML_TEMPLATE = '''
             
             container.innerHTML = '<div class="slot-grid">' + facultySlots.map(slot => `
                 <div class="slot-item" onclick='selectSlot(${JSON.stringify(slot)})'>
-                    <div class="slot-date">📅 ${slot.date}</div>
-                    <div class="slot-time">🕐 ${slot.time} (${slot.duration} min)</div>
+                    <div class="slot-date"> ${slot.date}</div>
+                    <div class="slot-time"> ${slot.time} (${slot.duration} min)</div>
                 </div>
             `).join('') + '</div>';
         }
@@ -647,13 +647,13 @@ HTML_TEMPLATE = '''
             container.innerHTML = facultyAppts.map(apt => `
                 <div class="appointment-item">
                     <div class="appointment-header">
-                        <div class="appointment-time">🕐 ${apt.time}</div>
+                        <div class="appointment-time"> ${apt.time}</div>
                         <span class="status-badge status-confirmed">Confirmed</span>
                     </div>
                     <p><strong>${apt.student_name}</strong></p>
                     <p style="color: #666; margin: 5px 0;">${apt.concern}</p>
                     <span class="meeting-type">
-                        ${apt.meeting_type === 'online' ? '💻 Online' : '🏢 In-person'}
+                        ${apt.meeting_type === 'online' ? ' Online' : ' In-person'}
                     </span>
                 </div>
             `).join('');
@@ -760,7 +760,7 @@ def book_appointment():
     appointments.append(appointment)
   
     faculty = next(f for f in faculty_members if f['id'] == data['faculty_id'])
-    print(f"\n📧 EMAIL SENT TO: {data['student_name']}")
+    print(f"\n EMAIL SENT TO: {data['student_name']}")
     print(f"Subject: Appointment Confirmed with {faculty['name']}")
     print(f"Date: {appointment['date']} at {appointment['time']}")
     print(f"Meeting Type: {data['meeting_type']}")
@@ -782,11 +782,11 @@ def add_slot():
     available_slots.append(slot)
     return jsonify({'success': True, 'slot': slot})
 if __name__ == '__main__':
-    print("🎓 Faculty Consultation Appointment System")
-    print("📍 Open your browser and go to: http://127.0.0.1:5000")
+    print(" Faculty Consultation Appointment System")
+    print(" Open your browser and go to: http://127.0.0.1:5000")
     print("   • Students can browse faculty and book appointments")
     print("   • Faculty can manage their schedule and add time slots")
-    print("\n⚠️  Press Ctrl+C to stop the server\n")
+    print("\n  Press Ctrl+C to stop the server\n")
     app.run(debug=True, host='0.0.0.0', port=5000)
     
     
