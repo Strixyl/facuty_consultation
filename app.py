@@ -6,7 +6,6 @@ from collections import defaultdict
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
 
-
 faculty_members = [
     {'id': 1, 'name': 'Dr. Maria Santos', 'department': 'Computer Studies', 'email': 'msantos@university.edu'},
     {'id': 2, 'name': 'Prof. Juan Reyes', 'department': 'Mathematics', 'email': 'jreyes@university.edu'},
