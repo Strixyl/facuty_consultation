@@ -43,7 +43,8 @@ HTML_TEMPLATE = '''
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+           background: #7776a8;
+           background: linear-gradient(40deg, rgba(119, 118, 168, 1) 0%, rgba(9, 9, 121, 1) 52%, rgba(0, 212, 255, 1) 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -385,7 +386,7 @@ HTML_TEMPLATE = '''
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎓 Faculty Consultation System</h1>
+            <h1> Faculty Consultation System</h1>
             <p>Book appointments with your professors easily</p>
             <div class="role-switcher">
                 <button class="role-btn active" id="student-btn" onclick="switchRole('student')">
@@ -417,7 +418,7 @@ HTML_TEMPLATE = '''
         <!-- Faculty View -->
         <div id="faculty-view" class="content" style="display: none;">
             <div class="card">
-                <h2>Select Your Profile</h2>
+                <h2>Select Your Instructor</h2>
                 <div id="faculty-profiles"></div>
             </div>
             
