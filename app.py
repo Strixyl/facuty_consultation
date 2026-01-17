@@ -529,8 +529,64 @@ HTML_TEMPLATE = '''
                     </button>
                 </form>
             </div>
+            
+            <!-- Cancel/Reschedule Appointment Modal -->
+<div id="cancel-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Manage Appointment</h3>
+            <button class="close-btn" onclick="closeModal('cancel-modal')">&times;</button>
         </div>
-
+        <div id="cancel-info" style="background: #f5f7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;"></div>
+        
+        <!-- Step 1: Choose action -->
+        <div id="action-choice" style="margin-bottom: 20px;">
+            <p style="margin-bottom: 15px; font-weight: bold;">What would you like to do?</p>
+            <button type="button" class="btn btn-primary" onclick="showRescheduleForm()" style="width: 100%; margin-bottom: 10px;">
+                 Reschedule Appointment
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="showCancelForm()" style="width: 100%;">
+                 Cancel Appointment
+            </button>
+        </div>
+        
+        <!-- Step 2a: Reschedule form -->
+        <div id="reschedule-form" style="display: none;">
+            <form onsubmit="confirmReschedule(event)">
+                <div class="form-group">
+                    <label>Select New Date</label>
+                    <input type="date" id="new-appointment-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Available Times</label>
+                    <select id="new-appointment-slot" required>
+                        <option value="">Loading available slots...</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="showActionChoice()">Back</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Confirm Reschedule</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Step 2b: Cancel form -->
+        <div id="cancel-form" style="display: none;">
+            <form onsubmit="confirmCancel(event)">
+                <div class="form-group">
+                    <label>Cancellation Reason *</label>
+                    <textarea id="cancellation-reason" rows="4" required placeholder="Explain why this appointment is being cancelled..."></textarea>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="showActionChoice()">Back</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1; background: #f44336;">Cancel Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+        </div>
+        
         <script>
         let currentRole = 'student';
         let selectedFaculty = null;
