@@ -1366,7 +1366,7 @@ def cancel_appointment():
     appointment_id = data['appointment_id']
     reason = data.get('reason')
     
-    #find appointment and mark cacnnel
+    #find appointment and mark cancel
     for apt in appointments:
         if apt['id'] == appointment_id:
             apt['status'] = 'cancelled'
