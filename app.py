@@ -1244,7 +1244,6 @@ HTML_TEMPLATE = '''
                     reason: null
                 })
             });
-            
             if (response.ok) {
                 alert('Appointment cancelled successfully. Student has been notified.');
                 closeModal('manage-modal');
