@@ -1283,13 +1283,13 @@ def get_appointments():
 def book_appointment():
     data = request.json
     
-    # Mark the slot as booked
+    # slot markking for bookings
     for slot in available_slots:
         if slot['id'] == data['slot_id']:
             slot['is_booked'] = True
             break
     
-    # set an appointment
+    # appointment scheduling
     appointment = {
         'id': len(appointments) + 1,
         'faculty_id': data['faculty_id'],
