@@ -1289,7 +1289,7 @@ def book_appointment():
             slot['is_booked'] = True
             break
     
-    # create a new appointment 
+    # set an appointment
     appointment = {
         'id': len(appointments) + 1,
         'faculty_id': data['faculty_id'],
@@ -1377,7 +1377,7 @@ def cancel_appointment():
                     slot['is_booked'] = False
                     break
             
-            #send notif 
+            #send notif for cancellation  
             print(f"\nAppointment Cancelled:")
             print(f"Student: {apt['student_name']}")
             print(f"Date: {apt['date']} at {apt['time']}")
