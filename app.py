@@ -1343,7 +1343,6 @@ def delete_slot():
 @app.route('/api/add-faculty', methods=['POST'])
 def add_faculty():
     data = request.json
-    
     faculty = {
         'id': len(faculty_members) + 1,
         'name': data['name'],
@@ -1351,7 +1350,6 @@ def add_faculty():
         'email': data['email']
     }
     faculty_members.append(faculty)
-    
     print(f"\nNew faculty member added:")
     print(f"Name: {faculty['name']}")
     print(f"Department: {faculty['department']}")
