@@ -1362,7 +1362,6 @@ def cancel_appointment():
     data = request.json
     appointment_id = data['appointment_id']
     reason = data.get('reason')
-    
     #find appointment and mark cancel
     for apt in appointments:
         if apt['id'] == appointment_id:
