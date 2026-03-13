@@ -1312,7 +1312,6 @@ def book_appointment():
     print(f"Topic: {data['concern']}\n")
     
     return jsonify({'success': True, 'appointment': appointment})
-
 @app.route('/api/add-slot', methods=['POST'])
 def add_slot():
     data = request.json
