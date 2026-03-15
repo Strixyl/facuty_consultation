@@ -1288,7 +1288,6 @@ def book_appointment():
         if slot['id'] == data['slot_id']:
             slot['is_booked'] = True
             break
-    
     # appointment scheduling
     appointment = {
         'id': len(appointments) + 1,
