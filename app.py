@@ -1087,7 +1087,6 @@ HTML_TEMPLATE = '''
                 document.getElementById('slot-time').value = '';
             }
         }
-        
         // Display all slots for the faculty member
         function renderFacultySlots() {
             const container = document.getElementById('faculty-slots-container');
@@ -1103,8 +1102,7 @@ HTML_TEMPLATE = '''
                 const dateCompare = a.date.localeCompare(b.date);
                 if (dateCompare !== 0) return dateCompare;
                 return a.time.localeCompare(b.time);
-            });
-            
+            });   
             container.innerHTML = facultySlots.map(slot => `
                 <div class="faculty-slot-item ${slot.is_booked ? 'booked' : 'available'}">
                     <div class="slot-info">
@@ -1186,8 +1184,7 @@ HTML_TEMPLATE = '''
             `;
             showActionSelection();
             document.getElementById('manage-modal').classList.add('show');
-        }
-        
+        }        
         // Show action selection
         function showActionSelection() {
             document.getElementById('action-selection').style.display = 'block';
