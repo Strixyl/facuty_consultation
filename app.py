@@ -1334,7 +1334,6 @@ def delete_slot():
     available_slots = [slot for slot in available_slots if slot['id'] != slot_id]
     
     return jsonify({'success': True})
-
 @app.route('/api/add-faculty', methods=['POST'])
 def add_faculty():
     data = request.json
@@ -1348,10 +1347,8 @@ def add_faculty():
     print(f"\nNew faculty member added:")
     print(f"Name: {faculty['name']}")
     print(f"Department: {faculty['department']}")
-    print(f"Email: {faculty['email']}\n")
-    
+    print(f"Email: {faculty['email']}\n")  
     return jsonify({'success': True, 'faculty': faculty})
-
 @app.route('/api/cancel-appointment', methods=['POST'])
 def cancel_appointment():
     data = request.json
@@ -1362,13 +1359,11 @@ def cancel_appointment():
         if apt['id'] == appointment_id:
             apt['status'] = 'cancelled'
             apt['cancellation_reason'] = reason
-            
             # Free up the slot
             for slot in available_slots:
                 if slot['date'] == apt['date'] and slot['time'] == apt['time']:
                     slot['is_booked'] = False
                     break
-            
             #send notif for cancellation  
             print(f"\nAppointment Cancelled:")
             print(f"Student: {apt['student_name']}")
@@ -1394,7 +1389,8 @@ if __name__ == '__main__':
     print("  - Faculty schedule management")
     print("  - Email confirmations (console output)")
     print("  - Consultation analytics")
-    print("\nPress Ctrl+C to stop the server\n")
+    print("\nPress Ctrl+C to close the server\n")
     print("="*60 + "\n")
+    
     
     app.run(debug=True, host='0.0.0.0', port=5000)
