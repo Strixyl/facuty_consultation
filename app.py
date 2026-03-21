@@ -10,7 +10,8 @@ app.secret_key = 'your-secret-key-here'
 faculty_members = [
     {'id': 1, 'name': 'Dr. Maria Santos', 'department': 'Computer Science', 'email': 'msantos@university.edu'},
     {'id': 2, 'name': 'Prof. Juan Reyes', 'department': 'Mathematics', 'email': 'jreyes@university.edu'},
-    {'id': 3, 'name': 'Dr. Ana Cruz', 'department': 'Physics', 'email': 'acruz@university.edu'},
+    {'id': 3, 'name': 'Dr. Ana Cruz', 'department': 'Physics', 'email': 'a, cruz@university.edu'},
+    {'id': 4, 'name': 'Lenord Acappella', 'department': 'Foreign Language', 'email': 'adjkl@univ.edu.ph'},
 ]
 
 available_slots = [
